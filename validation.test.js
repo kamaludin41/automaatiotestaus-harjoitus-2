@@ -8,6 +8,10 @@ test("validateEmail hyväksyy tavallisen sähköpostiosoitteen", () => {
   const result = validateEmail("opiskelija@example.com");
   assert.strictEqual(result, true);
 });
+test("validateEmail hylkää sähköpostiosoitteen ilman domainia", () => {
+  const result = validateEmail("@test.");
+  assert.strictEqual(result, false);
+});
 
 test("validateEmail hylkää sähköpostiosoitteen ilman @-merkkiä", () => {
   const result = validateEmail("opiskelija.example.com");
